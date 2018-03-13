@@ -9,29 +9,47 @@
 import UIKit
 
 class ViewController: UIViewController {
-/*
- Falta el @IBOutlet en
- weak var outtletText: UITextField!
- */
-    @IBOutlet weak var outtletText: UITextField!
-    @IBOutlet weak var aoutletButton: UIButton!
+  
+    
+    @IBOutlet weak var Textfield: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+    }
     
-        aoutletButton.setTitle("Touch me!", for: .normal)
-        
-    }
-    // se agrego el @IBAction
-    @IBAction  func actionButton(_ sender: Any) {
-        outtletText.text = "You are a genius "
-    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func keyboardReturnkey(_ sender: UITextField) {
+        if let text = sender.text{
+            print(text)
+        }
+    }
 
+    @IBAction func regresa(unwindSegue: UIStoryboardSegue){
+        
+    }
+    
+    
+    @IBAction func switchActivated(_ sender: UISwitch) {
+        if sender.isOn{
+            print("The switch is on")
+        }
+        else{
+            print("The switch is off")
+        }
+    }
+    
+    @IBAction func Slider(_ sender: UISlider) {
+        print(sender.value)
+        }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        segue.destination.navigationItem.title = Textfield.text
+    }
+    
+    
 }
 
